@@ -1,19 +1,21 @@
 
 import telebot,requests
 from telebot import types
-T = "7114224334:AAHSEBbKKhOvYE_DAYb6VfM8FboSy-6czrI"
+T = "7484974715:AAHPjy7xRgF7L-LgfV6nvl1KSYDjxzDjOh4"
 B = telebot.TeleBot(T)
 @B.message_handler(commands=['start'])
 def s(m):
     pv = types.ReplyKeyboardMarkup(resize_keyboard=True)
     pv.add(types.KeyboardButton("✓ Create Image"))
     B.send_photo(m.chat.id, "", caption="""
-| مرحبًا بك في AI Chat Bot!  | قم بإنشاء صور باستخدام الذكاء الاصطناعي من النص | اضغط على الزر أدناه للبدء:
-""", reply_markup=pv)
+👋 | Welcome to AI Chat Bot!
+⭐ | Create images with AI from text
+🎉 | Press the button below to get started:""", reply_markup=pv)
 @B.message_handler(func=lambda message: message.text == "✓ Create Image")
 def i_c(message):
     B.send_photo(message.chat.id, "https://t.me/ifuwufuj/25", caption="""
-| الرجاء إدخال وصف مختصر للصورة التي تريد إنشاءها، على سبيل المثال: (قطة) اللغة الإنجليزية مدعومة فقط!
+🌈 | Please enter a brief description of the image you want to create, for example: (cat)
+Only English language is supported!
 """)
 @B.message_handler(content_types=['text'])
 def c_i(message):
